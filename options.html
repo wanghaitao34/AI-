@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI解读助手设置</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #34495e;
+      font-weight: 500;
+    }
+    select, input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+      height: 40px;
+      box-sizing: border-box;
+    }
+    select {
+      appearance: none;
+      background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+      background-repeat: no-repeat;
+      background-position: right 10px top 50%;
+      background-size: 12px auto;
+    }
+    button {
+      background-color: #3498db;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      height: 40px;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .hidden {
+      display: none;
+    }
+    .api-key-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    #togglePassword {
+      position: absolute;
+      right: 10px;
+      cursor: pointer;
+      color: #666;
+      background: none;
+      border: none;
+      padding: 0;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AI解读助手设置</h1>
+    <div class="form-group">
+      <label for="apiProvider">API 提供商</label>
+      <select id="apiProvider">
+        <option value="azure">Azure OpenAI</option>
+        <option value="openai">OpenAI</option>
+        <option value="other">其它</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="apiEndpoint">API 终结点</label>
+      <input type="text" id="apiEndpoint" placeholder="输入API终结点">
+    </div>
+    <div class="form-group">
+      <label for="apiKey">API 密钥</label>
+      <div class="api-key-container">
+        <input type="password" id="apiKey" placeholder="输入API密钥">
+        <button id="togglePassword" type="button">
+          <i class="fas fa-eye-slash"></i>
+        </button>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="modelSelect">模型</label>
+      <select id="modelSelect">
+        <option value="gpt-4">GPT-4</option>
+        <option value="gpt-4o-mini">GPT-4o Mini</option>
+        <option value="gpt-35-turbo">GPT-3.5-Turbo</option>
+        <option value="custom">自定义</option>
+      </select>
+    </div>
+    <div id="customModelGroup" class="form-group hidden">
+      <label for="customModel">自定义模型名称</label>
+      <input type="text" id="customModel" placeholder="输入自定义模型名称">
+    </div>
+    <button id="saveButton">保存设置</button>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

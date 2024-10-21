@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "AI解读助手",
+  "version": "1.0",
+  "description": "使用AI解读选中的文本",
+  "permissions": ["contextMenus", "storage", "activeTab"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "options_page": "options.html"
+}
